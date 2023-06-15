@@ -77,17 +77,30 @@
         <script>
             var count = 0;
             function addItem() {
-                const countEl = document.getElementById("count");
-                count += 1;
-                countEl.innerText = count;
+                const form = document.forms.mainform;
+
+                //find item element in form
+                const itemEl = window.event.target.closest(".item");
+
+                //extract and add to total price
+                const priceToAdd = parseInt(itemEl.querySelector(".price").innerText);
+                const newTotalPrice = parseInt(form.totalprice.value) + priceToAdd;
+                form.totalprice.value = newTotalPrice;
+
+
+                //increase number of items
+                const countEl = form.count;
+                const countValue = parseInt(countEl.value) + 1;
+                countEl.value = countValue;
             }
             
         </script>
     </head>
     <body>
-        <form action="submit.php" method="post">
+        <form name="mainform" action="submit.php" method="post">
             <div id="menu">
-                <label id="count">0</label>
+                <input name="count" value="0">
+                <input type="hidden" name="totalprice" value="0">
                 <img src="cart.jpeg">
             </div>
             <?php
