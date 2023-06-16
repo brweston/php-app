@@ -1,0 +1,58 @@
+#menu, .contents {
+    width: 60%;
+    margin: auto;
+}
+.contents {
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#menu {
+    height: 7%;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+.item {
+    box-sizing: border-box;
+    background-color: #eee;
+    margin: 10px 0;
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+}
+.title {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.price {
+    float: left;
+}
+.price::before {
+    content: '$';
+}
+input[type="button"] {
+    float: right;
+    bottom: 0;
+}
+input[type="text"] {
+    outline: none;
+    background: none;
+    border: none;
+    width: auto;
+}
+.item img {
+    height: 100px;
+    width: 100px;
+}
+#menu img {
+    height: 20px;
+    width: 20px;
+}
+#count {
+    font-size: 1.25em;
+}
